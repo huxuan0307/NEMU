@@ -68,7 +68,7 @@ static inline make_EHelper(op_imm) {
 
         case 12:
           switch(s->isa.instr.i.simm11_0 & 0x1f) {
-            EX(0, clz)  EX(1, ctz)  EX(2, cpop)  EX(4, sextb)  EX(5, sexth)
+            EX(0, clz)  EX(1, ctz)  EX(2, cpop)  EX(4, sext_b)  EX(5, sext_h)
             default: exec_inv(s);
           }
           break;
@@ -78,7 +78,7 @@ static inline make_EHelper(op_imm) {
 
     case 5:
       switch (s->isa.instr.i.simm11_0 >> 7) {
-        EX(0, srli)  EX(5, orcb)  EX(8, srai)  EX(9, bexti)  EX(12,rori)  EX(13, rev8)
+        EX(0, srli)  EX(5, orc_b)  EX(8, srai)  EX(9, bexti)  EX(12,rori)  EX(13, rev8)
         default: exec_inv(s);
       }
       break;
@@ -92,7 +92,7 @@ static inline make_EHelper(op_imm32) {
     EX(0, addiw) // EX(1, slliw) EX(5, srliw)
     case 1:
       switch (s->isa.instr.i.simm11_0 >> 7) {
-        EX(0, slliw)  EX(1, slliuw)  EX(5, bsetiw)  EX(9, bclriw)  EX(13, binviw)
+        EX(0, slliw)  EX(1, slliuw)  
         case 12:
           switch (s->isa.instr.i.simm11_0 & 0x1f){
             EX(0, clzw)   EX(1, ctzw)   EX(2, cpopw)
@@ -104,7 +104,7 @@ static inline make_EHelper(op_imm32) {
 
     case 5:
       switch (s->isa.instr.i.simm11_0 >> 7){
-        EX(0, srliw)  EX(8, sraiw)  EX(9, bextiw)  EX(12,roriw)
+        EX(0, srliw)  EX(8, sraiw)  EX(12,roriw)
         default: exec_inv(s);
       }
       break;
@@ -149,9 +149,8 @@ static inline make_EHelper(op32) {
     EX(pair(1, 4), divw) EX(pair(1, 5), divuw) EX(pair(1, 6), remw)  EX(pair(1, 7), remuw)
     EX(pair(2, 0), subw) EX(pair(2, 5), sraw)
 
-    EX(pair(4, 0), adduw)     EX(pair(4, 4), zexth)
+    EX(pair(4, 0), adduw)     EX(pair(4, 4), zext_h)
     EX(pair(16, 2), sh1adduw) EX(pair(16, 4), sh2adduw) EX(pair(16, 6), sh3adduw)
-    EX(pair(36, 1), bclrw)    EX(pair(36, 5), bextw)    EX(pair(52, 1), binvw)    EX(pair(20, 1), bsetw)
     EX(pair(48, 1), rolw)     EX(pair(48, 5), rorw)
 
     default: exec_inv(s);

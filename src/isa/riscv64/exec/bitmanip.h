@@ -11,9 +11,11 @@
 BUILD_EXEC_B1(clz)
 BUILD_EXEC_B1(ctz)
 BUILD_EXEC_B1(cpop)
-BUILD_EXEC_B1(sextb)
-BUILD_EXEC_B1(sexth)
-BUILD_EXEC_B1(zexth)
+BUILD_EXEC_B1(sext_b)
+BUILD_EXEC_B1(sext_h)
+BUILD_EXEC_B1(zext_h)
+BUILD_EXEC_B1(rev8)
+BUILD_EXEC_B1(orc_b)
 
 #define BUILD_EXEC_B1W(x) \
   static inline make_EHelper(x ## w) { \

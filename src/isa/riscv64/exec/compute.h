@@ -75,9 +75,8 @@ static inline make_EHelper(srli) {
   // if ((s->isa.instr.r.funct7 & ~0x1) == 32 && s->isa.instr.r.opcode1_0 == 0x3) {
   //   exec_srai(s);
   // } else {
-    rtl_shri(s, ddest, dsrc1, id_src2->imm);
-    print_asm_template3(srli);
-  }
+  rtl_shri(s, ddest, dsrc1, id_src2->imm);
+  print_asm_template3(srli);
 }
 
 static inline make_EHelper(slti) {
