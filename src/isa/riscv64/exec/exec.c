@@ -122,7 +122,7 @@ static inline make_EHelper(op) {
     EX(pair(0, 4), xor)  EX(pair(0, 5), srl)  EX(pair(0, 6), or)   EX(pair(0, 7), and)
     EX(pair(1, 0), mul)  EX(pair(1, 1), mulh) EX(pair(1,2), mulhsu)EX(pair(1, 3), mulhu)
     EX(pair(1, 4), div)  EX(pair(1, 5), divu) EX(pair(1, 6), rem)  EX(pair(1, 7), remu)
-    EX(pair(2, 0), sub)  EX(pair(2, 5), sra)
+    EX(pair(32, 0), sub)  EX(pair(32, 5), sra)
 
     EX(pair(5, 1), clmul)   EX(pair(5, 2), clmulr)    EX(pair(5, 3), clmulh)
     EX(pair(5, 4), min)     EX(pair(5, 5), minu)      EX(pair(5, 6), max)     EX(pair(5, 7), maxu)
@@ -147,7 +147,7 @@ static inline make_EHelper(op32) {
                          EX(pair(0, 5), srlw)
     EX(pair(1, 0), mulw)
     EX(pair(1, 4), divw) EX(pair(1, 5), divuw) EX(pair(1, 6), remw)  EX(pair(1, 7), remuw)
-    EX(pair(2, 0), subw) EX(pair(2, 5), sraw)
+    EX(pair(32, 0), subw) EX(pair(32, 5), sraw)
 
     EX(pair(4, 0), adduw)     EX(pair(4, 4), zext_h)
     EX(pair(16, 2), sh1adduw) EX(pair(16, 4), sh2adduw) EX(pair(16, 6), sh3adduw)
