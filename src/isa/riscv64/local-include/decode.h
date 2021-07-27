@@ -30,7 +30,8 @@ static inline make_DopHelper(fpr){
 
 static inline make_DHelper(I) {
   sword_t imm;
-  if(s->isa.instr.bi.funct3 == 1 || s->isa.instr.bi.funct3 == 5){
+
+  if((s->isa.instr.bi.funct3 == 1 || s->isa.instr.bi.funct3 == 5) && s->isa.instr.bi.opcode6_2 != 0){
     imm = s->isa.instr.bi.imm6_0;
   }else{
     imm = s->isa.instr.i.simm11_0;
