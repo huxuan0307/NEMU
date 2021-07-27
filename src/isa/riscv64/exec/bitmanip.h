@@ -81,7 +81,7 @@ BUILD_EXEC_BI2(bset)
 BUILD_EXEC_BI2W(ror)
 
 
-make_EHelper(adduw) { *ddest = *dsrc1 + (uint32_t)*dsrc2; print_asm_template3(adduw); }
+make_EHelper(adduw) { *ddest = *dsrc2 + (uint32_t)*dsrc1; print_asm_template3(adduw); }
 make_EHelper(slliuw) { *ddest = (uint32_t)*dsrc1 << id_src2->imm; print_asm_template3(slliuw); }
 
 make_EHelper(sh1add) { *ddest = (*dsrc1 << 1) + *dsrc2; print_asm_template3(sh1add); }
