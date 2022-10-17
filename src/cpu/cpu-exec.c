@@ -355,7 +355,7 @@ void cpu_exec(uint64_t n) {
   }
 
   while (nemu_state.state == NEMU_RUNNING &&
-      MUXDEF(CONFIG_ENABLE_INSTR_CNT, n_remain_total > 0, true)) {
+      MUXDEF(CONFIG_ENABLE_INSTR_CNT, (n_remain_total > 0 || cause), true)) {
 #ifdef CONFIG_DEVICE
     extern void device_update();
     device_update();
